@@ -10,29 +10,48 @@ import SwiftUI
 struct WorldClockView: View {
     var body: some View {
         NavigationStack {
-            Text("World Clock")
-                .navigationTitle("World Clock")
-                .toolbar {
-                    
-                    ToolbarItem(placement: .topBarLeading) {
-                        
-                        Button("Edit") {
-                            // Does nothing right now
-                        }
-                        
+            VStack {
+                // Ottawa
+                HStack {
+                    // Left Side
+                    VStack {
+                        Text("Today, +0HRS")
+                        Text("Ottawa")
+                            .font(.system(.largeTitle, design: .default, weight: .thin))
                     }
                     
-                    ToolbarItem(placement: .primaryAction) {
-                        Button {
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-                    }
+                    Spacer()
+                    
+                    // Right Side
+                    Text("6:35")
+                        .font(.system(size: 64.0, weight: .thin, design: .default))
+                    Text("AM")
+                        .font(.system(.largeTitle, design: .default, weight: .thin))
+                    
                 }
+            }
+                    .navigationTitle("World Clock")
+                    .toolbar {
+                        
+                        ToolbarItem(placement: .topBarLeading) {
+                            
+                            Button("Edit") {
+                                // Does nothing right now
+                            }
+                            
+                        }
+                        
+                        ToolbarItem(placement: .primaryAction) {
+                            Button {
+                            } label: {
+                                Image(systemName: "plus")
+                            }
+                        }
+                    }
 
+            }
         }
     }
-}
 
 #Preview {
     LandingView()

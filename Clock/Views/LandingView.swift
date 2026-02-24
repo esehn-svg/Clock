@@ -34,8 +34,6 @@ struct LandingView: View {
         }
         .preferredColorScheme(.dark)
         .tint(.orange)
-
-        .padding()
     }
 }
 
