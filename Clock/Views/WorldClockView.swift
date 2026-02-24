@@ -12,22 +12,10 @@ struct WorldClockView: View {
         NavigationStack {
             VStack {
                 // Ottawa
+                ExtractedView(timeZoneOffset: "+0", city: "Ottawa", time: "6:35", amOrPm: "AM")
+                //Vancouver
                 HStack {
-                    // Left Side
-                    VStack {
-                        Text("Today, +0HRS")
-                        Text("Ottawa")
-                            .font(.system(.largeTitle, design: .default, weight: .thin))
-                    }
-                    
-                    Spacer()
-                    
-                    // Right Side
-                    Text("6:35")
-                        .font(.system(size: 64.0, weight: .thin, design: .default))
-                    Text("AM")
-                        .font(.system(.largeTitle, design: .default, weight: .thin))
-                    
+                    ExtractedView(timeZoneOffset: "-3", city: "Vancouver", time: "3:35", amOrPm: "AM")
                 }
             }
                     .navigationTitle("World Clock")
@@ -55,4 +43,35 @@ struct WorldClockView: View {
 
 #Preview {
     LandingView()
+}
+
+struct ExtractedView: View {
+    // Stored Properties
+    let timeZoneOffset: String
+    let city: String
+    let time: String
+    let amOrPm: String
+    
+    
+    var body: some View {
+        // Ottawa
+        HStack {
+            // Left Side
+            VStack(alignment: .leading) {
+                Text("Today, \(timeZoneOffset)HRS")
+                Text(city)
+                    .font(.system(.largeTitle, design: .default, weight: .thin))
+            }
+            
+            Spacer()
+            
+            // Right Side
+            Text(time)
+                .font(.system(size: 64.0, weight: .thin, design: .default))
+            Text(amOrPm)
+                .font(.system(.largeTitle, design: .default, weight: .thin))
+            
+        }
+
+    }
 }
